@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 class Utils:
     punctuation = r'[\.,#\-!?:/]'
+    stopwords = list(STOPWORDS)
 
 
 def get_file_contents(txt_file):
@@ -17,3 +18,10 @@ def get_file_contents(txt_file):
 def remove_punctuation(text):
     revised_text = re.sub(Utils.punctuation, '',text)
     return revised_text
+
+def get_stopwords(more_stopwords):
+    stopwords = Utils.stopwords
+    stopwords.append(more_stopwords.split())
+    stopwords = set(stopwords)
+    return stopwords
+
